@@ -10,13 +10,6 @@ import (
 	"github.com/vmware/govmomi/vim25/soap"
 )
 
-const (
-	envURL      = "GOVMOMI_URL"
-	envUserName = "GOVMOMI_USERNAME"
-	envPassword = "GOVMOMI_PASSWORD"
-	envInsecure = "GOVMOMI_INSECURE"
-)
-
 type VsphereClientOptions struct {
 	urlFlag      string
 	insecureFlag bool

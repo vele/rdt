@@ -3,30 +3,15 @@ package vsphere
 import (
 	"net/url"
 	"os"
-	"strings"
 )
 
-func getEnvString(v string, def string) string {
-	r := os.Getenv(v)
-	if r == "" {
-		return def
-	}
+const (
+	envURL      = "GOVMOMI_URL"
+	envUserName = "GOVMOMI_USERNAME"
+	envPassword = "GOVMOMI_PASSWORD"
+	envInsecure = "GOVMOMI_INSECURE"
+)
 
-	return r
-}
-func getEnvBool(v string, def bool) bool {
-	r := os.Getenv(v)
-	if r == "" {
-		return def
-	}
-
-	switch strings.ToLower(r[0:1]) {
-	case "t", "y", "1":
-		return true
-	}
-
-	return false
-}
 func processOverride(u *url.URL) {
 	envUsername := os.Getenv(envUserName)
 	envPassword := os.Getenv(envPassword)
